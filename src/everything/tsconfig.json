@@ -2,9 +2,13 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "."
+    "rootDir": ".",
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "allowJs": true
   },
   "include": [
-    "./**/*.ts"
+    "./**/*.ts",
+    "./**/*.d.ts"
   ]
 }
