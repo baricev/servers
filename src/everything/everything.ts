@@ -32,16 +32,16 @@ const ToolInputSchema = ToolSchema.shape.inputSchema;
 type ToolInput = z.infer<typeof ToolInputSchema>;
 
 /* Input schemas for tools implemented in this server */
-const EchoSchema = z.object({
+export const EchoSchema = z.object({
   message: z.string().describe("Message to echo"),
 });
 
-const AddSchema = z.object({
+export const AddSchema = z.object({
   a: z.number().describe("First number"),
   b: z.number().describe("Second number"),
 });
 
-const LongRunningOperationSchema = z.object({
+export const LongRunningOperationSchema = z.object({
   duration: z
     .number()
     .default(10)
@@ -49,9 +49,9 @@ const LongRunningOperationSchema = z.object({
   steps: z.number().default(5).describe("Number of steps in the operation"),
 });
 
-const PrintEnvSchema = z.object({});
+export const PrintEnvSchema = z.object({});
 
-const SampleLLMSchema = z.object({
+export const SampleLLMSchema = z.object({
   prompt: z.string().describe("The prompt to send to the LLM"),
   maxTokens: z
     .number()
@@ -66,9 +66,9 @@ const EXAMPLE_COMPLETIONS = {
   resourceId: ["1", "2", "3", "4", "5"],
 };
 
-const GetTinyImageSchema = z.object({});
+export const GetTinyImageSchema = z.object({});
 
-const AnnotatedMessageSchema = z.object({
+export const AnnotatedMessageSchema = z.object({
   messageType: z
     .enum(["error", "success", "debug"])
     .describe("Type of message to demonstrate different annotation patterns"),
@@ -78,7 +78,7 @@ const AnnotatedMessageSchema = z.object({
     .describe("Whether to include an example image"),
 });
 
-const GetResourceReferenceSchema = z.object({
+export const GetResourceReferenceSchema = z.object({
   resourceId: z
     .number()
     .min(1)
@@ -86,9 +86,9 @@ const GetResourceReferenceSchema = z.object({
     .describe("ID of the resource to reference (1-100)"),
 });
 
-const ElicitationSchema = z.object({});
+export const ElicitationSchema = z.object({});
 
-const GetResourceLinksSchema = z.object({
+export const GetResourceLinksSchema = z.object({
   count: z
     .number()
     .min(1)
@@ -97,7 +97,7 @@ const GetResourceLinksSchema = z.object({
     .describe("Number of resource links to return (1-10)"),
 });
 
-enum ToolName {
+export enum ToolName {
   ECHO = "echo",
   ADD = "add",
   LONG_RUNNING_OPERATION = "longRunningOperation",
@@ -110,7 +110,7 @@ enum ToolName {
   GET_RESOURCE_LINKS = "getResourceLinks",
 }
 
-enum PromptName {
+export enum PromptName {
   SIMPLE = "simple_prompt",
   COMPLEX = "complex_prompt",
   RESOURCE = "resource_prompt",

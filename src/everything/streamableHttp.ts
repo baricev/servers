@@ -29,6 +29,7 @@ app.post('/mcp', async (req: Request, res: Response) => {
       transport = new StreamableHTTPServerTransport({
         sessionIdGenerator: () => randomUUID(),
         eventStore, // Enable resumability
+        enableJsonResponse: true,
         onsessioninitialized: (sessionId: string) => {
           // Store the transport by session ID when session is initialized
           // This avoids race conditions where requests might come in before the session is stored
