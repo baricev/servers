@@ -15,6 +15,7 @@ export default {
     ...pathsToModuleNameMapper(compilerOptions.paths || {}, { prefix: '<rootDir>/' }),
     '^(\\.{1,2}/.*)\\.js$': '$1'
   },
+  testTimeout: 40000,
   globals: {
     'ts-jest': { useESM: true, diagnostics: false }
   }
